@@ -1,0 +1,164 @@
+:root {
+  --border: #a2a9b1;
+  --header: #eaecf0;
+  --table-bg: #f8f9fa;
+  --text: #202122;
+  --note: #54595d;
+}
+
+body {
+  margin: 2rem;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+               "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  line-height: 1.55;
+}
+
+h1 {
+  font-size: 1.55rem;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.18rem;
+  margin: 1.45rem 0 0.35rem;
+  font-weight: 600;
+}
+
+.note {
+  max-width: 72rem;
+  font-size: 0.93rem;
+  color: var(--note);
+  margin: 0.35rem 0 1rem;
+}
+
+.link-list {
+  line-height: 1.8;
+  margin: 0.2rem 0 1rem;
+  padding-inline-start: 1.4rem;
+}
+
+.link-list a {
+  color: #36c;
+  text-decoration: none;
+}
+
+.link-list a:hover {
+  text-decoration: underline;
+}
+
+.wikitable {
+  border-collapse: collapse;
+  background: var(--table-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  margin: 0.65rem 0 1.15rem;
+  font-size: 95%;
+  min-width: 32rem;
+}
+
+.wikitable caption {
+  font-weight: 600;
+  padding: 0.45rem 0.55rem;
+  text-align: left;
+  caption-side: top;
+}
+
+.wikitable th,
+.wikitable td {
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.55rem;
+  vertical-align: middle;
+}
+
+.wikitable th {
+  background: var(--header);
+  text-align: center;
+  font-weight: 600;
+}
+
+.form,
+.kana {
+  font-size: 1.06em;
+  line-height: 1.78;
+  white-space: nowrap;
+}
+
+.kana {
+  letter-spacing: 0.01em;
+}
+
+.entry {
+  display: block;
+}
+
+.usage {
+  display: inline-block;
+  min-width: 2.4em;
+  margin-inline-end: 0.5em;
+  color: var(--note);
+  font-size: 0.88em;
+}
+
+.superscript {
+  color: var(--note);
+  font-size: 0.72em;
+  line-height: 0;
+  margin-inline-start: 0.05em;
+}
+
+.pitch-high {
+  border-top: 1px solid currentColor;
+  position: relative;
+  padding: 1px 0 0;
+  display: inline;
+  line-height: 1.15;
+}
+
+.pitch-down {
+  position: absolute;
+  top: 0;
+  bottom: 67%;
+  right: 0;
+  border-right: 1px solid currentColor;
+}
+
+.separator {
+  margin: 0 0.12em;
+}
+
+.note-label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.note-text {
+  white-space: normal;
+  line-height: 1.55;
+}
+
+.notes-list {
+  max-width: 72rem;
+  margin: 0.4rem 0 1rem;
+  padding-inline-start: 1.4rem;
+}
+
+.notes-list li {
+  margin: 0.35rem 0;
+}
+
+.notes-list .note-label,
+.notes-list .note-text {
+  display: block;
+}
+
+@media (max-width: 40rem) {
+  body {
+    margin: 1rem;
+  }
+
+  .wikitable {
+    min-width: 28rem;
+  }
+}
