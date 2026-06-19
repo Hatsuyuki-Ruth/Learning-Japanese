@@ -56,15 +56,19 @@ window.JaPitchTables = (() => {
     return label + JaPronMini.renderParts(reading.parts);
   }
 
-  function renderReadingImpl(readings) {
+  function renderReadingInline(reading) {
+    return `<span class="kana">${renderReading(reading)}</span>`;
+  }
+
+  function renderReadingsSpan(readings) {
     return readings.map(reading => { return `<span class="entry">${renderReading(reading)}</span>`; }).join("");
   }
 
   function renderReadings(row) {
     if (row.entries) {
-      return row.entries.map(entry => { return renderReadingImpl(entry.readings); }).join("");
+      return row.entries.map(entry => { return renderReadingsSpan(entry.readings); }).join("");
     }
-    return renderReadingImpl(row.readings);
+    return renderReadingsSpan(row.readings);
   }
 
   function renderSectionedAccentCells(row, options) {
@@ -196,6 +200,6 @@ window.JaPitchTables = (() => {
 
   return {
     renderSectionColumnAccentTable,
-    renderReading
+    renderReadingInline
   };
 })();

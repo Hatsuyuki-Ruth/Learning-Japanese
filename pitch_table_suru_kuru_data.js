@@ -243,7 +243,7 @@ function conjugationEntry(entry) {
 }
 
 JaPitchTables.renderSectionColumnAccentTable({
-  tableSelector: "#accent-table",
+  tableSelector: "#suru-kuru",
   rowHeaderTitle: "形式",
   rowHeaders: suruKuruRows.map(row => row.term),
   sectionColumnLabels: ["語形", "アクセント表記"],

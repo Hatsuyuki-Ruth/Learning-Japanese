@@ -48,31 +48,36 @@ h2 {
   text-decoration: underline;
 }
 
-.wikitable {
+.table-scroll {
+  margin: 0.65rem 0 1.15rem;
+  overflow-x: auto;
+}
+
+.pitch-table {
   border-collapse: collapse;
   background: var(--table-bg);
   color: var(--text);
   border: 1px solid var(--border);
-  margin: 0.65rem 0 1.15rem;
+  margin: 0;
   font-size: 95%;
   min-width: 32rem;
 }
 
-.wikitable caption {
+.pitch-table caption {
   font-weight: 600;
   padding: 0.45rem 0.55rem;
   text-align: left;
   caption-side: top;
 }
 
-.wikitable th,
-.wikitable td {
+.pitch-table th,
+.pitch-table td {
   border: 1px solid var(--border);
   padding: 0.3rem 0.55rem;
   vertical-align: middle;
 }
 
-.wikitable th {
+.pitch-table th {
   background: var(--header);
   text-align: center;
   font-weight: 600;
@@ -158,7 +163,7 @@ h2 {
     margin: 1rem;
   }
 
-  .wikitable {
+  .pitch-table {
     min-width: 28rem;
   }
 }

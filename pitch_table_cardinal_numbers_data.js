@@ -134,7 +134,7 @@ const cardinalNumberNotes = [
     target: "五十一〜五十九・六十一〜六十九・八十一〜八十九",
     text: [
       "五十・六十・八十に一の位が続く場合、十の位の部分は平板型になる。",
-      `例えば、五十三：${JaPitchTables.renderReading({
+      `例えば、五十三：${JaPitchTables.renderReadingInline({
         parts: [{ moras: ["ご", "じゅ", "う", "さ", "ん"], accent: 0 }]
       })}`
     ].join("<br>")
@@ -153,10 +153,10 @@ const cardinalNumberNotes = [
   {
     target: "十五億",
     text: `『NHK日本語発音アクセント新辞典』：
-    ${JaPitchTables.renderReading({
+    ${JaPitchTables.renderReadingInline({
       parts: [{ moras: ["じゅ", "う"], accent: 1 }, { separator: "・" }, { moras: ["ご", "お", "く"], accent: 1 }]
     })}、
-    ${JaPitchTables.renderReading({
+    ${JaPitchTables.renderReadingInline({
       parts: [{ moras: ["じゅ", "う", "ご", "お", "く"], accent: 1 }]
     })}`
   }

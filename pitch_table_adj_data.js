@@ -177,7 +177,7 @@ function adjectiveEntry(entry) {
 }
 
 JaPitchTables.renderSectionColumnAccentTable({
-  tableSelector: "#accent-table",
+  tableSelector: "#adj",
   rowHeaderTitle: "形式",
   rowHeaders: adjectiveRows.map(row => row.term),
   sectionColumnLabels: ["語形", "アクセント表記"],
