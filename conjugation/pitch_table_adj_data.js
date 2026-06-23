@@ -21,14 +21,14 @@ const adjectiveRows = [
     asai: {
       form: "浅くて",
       readings: [
-        [{ moras: ["あ", "さ", "く", "て"], accent: 2 }]
+        [{ moras: ["あ", "さ", "く", "て"], accent: 2, circled: [2] }]
       ]
     },
     fukai: {
       form: "深くて",
       readings: [
-        [{ moras: ["ふ", "か", "く", "て"], accent: 2 }],
-        [{ moras: ["ふ", "か", "く", "て"], accent: 1 }]
+        [{ moras: ["ふ", "か", "く", "て"], accent: 2, circled: [2] }],
+        [{ moras: ["ふ", "か", "く", "て"], accent: 1, circled: [2] }]
       ]
     }
   },
@@ -169,6 +169,14 @@ const adjectiveRows = [
   }
 ];
 
+const adjectiveNotes = [
+  {
+    target: "深い",
+    text: "深いの活用形では「ふ」も無声化する。",
+    translation: "The ふ in the inflected forms of 深い is also devoiced."
+  }
+];
+
 function adjectiveEntry(entry) {
   return {
     form: entry.form,
@@ -190,5 +198,7 @@ JaPitchTables.renderSectionColumnAccentTable({
       title: "深い",
       rows: adjectiveRows.map(row => adjectiveEntry(row.fukai))
     }
-  ]
+  ],
+  notesSelector: "#adj-notes",
+  notes: adjectiveNotes
 });

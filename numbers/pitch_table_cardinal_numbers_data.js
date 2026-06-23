@@ -134,8 +134,8 @@ const cardinalNumberNotes = [
     target: "五十一〜五十九・六十一〜六十九・八十一〜八十九",
     text: [
       "五十・六十・八十に一の位が続く場合、十の位の部分は平板型になる。",
-      `例えば、五十三：${JaPitchTables.renderReadingInline({
-        parts: [{ moras: ["ご", "じゅ", "う", "さ", "ん"], accent: 0 }]
+      `例えば、五十六：${JaPitchTables.renderReadingInline({
+        parts: [{ moras: ["ご", "じゅ", "う", "ろ", "く"], accent: 0 }]
       })}`
     ].join("<br>")
   },

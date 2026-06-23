@@ -29,16 +29,16 @@ const yearSections = [
       { form: "十二年", readings: [{ parts: [{ moras: ["じゅ", "う", "に", "ね", "ん"], accent: 3 }] }] },
       { form: "十三年", superscript: "☆", readings: [{ parts: [{ moras: ["じゅ", "う", "さ", "ん", "ね", "ん"], accent: 3 }] }] },
       { form: "十四年", superscript: "☆", readings: [
-        { parts: [{ moras: ["じゅ", "う", "よ", "ね", "ん"], accent: 1 }] },
-        { parts: [
+        { label: "複合型", parts: [
           { moras: ["じゅ", "う"], accent: 1 }, { separator: "・" }, { moras: ["よ", "ね", "ん"], accent: 0 }
-        ] }
+        ] },
+        { label: "一語型", parts: [{ moras: ["じゅ", "う", "よ", "ね", "ん"], accent: 1 }] }
       ]},
       { form: "十五年", superscript: "☆", readings: [
-        { parts: [{ moras: ["じゅ", "う", "ご", "ね", "ん"], accent: 1 }] },
-        { parts: [
+        { label: "複合型", parts: [
           { moras: ["じゅ", "う"], accent: 1 }, { separator: "・" }, { moras: ["ご", "ね", "ん"], accent: 0 }
-        ] }
+        ] },
+        { label: "一語型", parts: [{ moras: ["じゅ", "う", "ご", "ね", "ん"], accent: 1 }] }
       ]},
       { form: "十六年", readings: [{ parts: [{ moras: ["じゅ", "う", "ろ", "く", "ね", "ん"], accent: 4 }] }] },
       { form: "十七年", readings: [
@@ -47,19 +47,19 @@ const yearSections = [
       ]},
       { form: "十八年", readings: [{ parts: [{ moras: ["じゅ", "う", "は", "ち", "ね", "ん"], accent: 4 }] }] },
       { form: "十九年", superscript: "☆", readings: [
-        { parts: [{ moras: ["じゅ", "う", "きゅ", "う", "ね", "ん"], accent: 3 }] },
-        { parts: [{ moras: ["じゅ", "う", "く", "ね", "ん"], accent: 1 }] },
-        { parts: [
+        { label: "複合型", parts: [
           { moras: ["じゅ", "う"], accent: 1 }, { separator: "・" }, { moras: ["く", "ね", "ん"], accent: 0 }
-        ] }
+        ] },
+        { label: "一語型", parts: [{ moras: ["じゅ", "う", "く", "ね", "ん"], accent: 1 }] },
+        { parts: [{ moras: ["じゅ", "う", "きゅ", "う", "ね", "ん"], accent: 3 }] }
       ]},
-      { form: "二十年", readings: [{ parts: [{ moras: ["に", "じゅ", "ね", "ん"], accent: 2 }] }] }
+      { form: "二十年", readings: [{ parts: [{ moras: ["に", "じゅ", "う", "ね", "ん"], accent: 2 }] }] }
     ]
   },
   {
     title: "二十一年以上",
     rows: [
-      { form: "二十三年", superscript: "☆", readings: [
+      { form: "二十三年", readings: [
         { parts: [
           { moras: ["に", "じゅ", "う"], accent: 1 },
           { separator: "・" },
@@ -80,10 +80,6 @@ const yearSections = [
 ];
 
 const yearNotes = [
-  {
-    target: "十一年・十二年・十六年〜十九年",
-    text: "十九年を「じゅうきゅうねん」と読む場合を含め、「じゅう」は平板型で読み、後ろに一年〜九年と同じ読み方・アクセント型を続ける。"
-  },
   {
     target: "二十年・三十年・四十年など",
     text: "二十年・三十年・四十年などの十年単位では、「じゅ」にアクセント核を置く。"

@@ -81,6 +81,7 @@ h2 {
   background: var(--header);
   text-align: center;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .form,
@@ -129,6 +130,12 @@ h2 {
   border-right: 1px solid currentColor;
 }
 
+.kana-circle {
+  display: inline;
+  border: 1px dotted #777;
+  border-radius: 50%;
+}
+
 .separator {
   margin: 0 0.12em;
 }
@@ -141,6 +148,15 @@ h2 {
 .note-text {
   white-space: normal;
   line-height: 1.55;
+}
+
+.note-translation {
+  display: block;
+  color: #72777d;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.9em;
+  line-height: 1.45;
+  margin-top: 0.1rem;
 }
 
 .notes-list {

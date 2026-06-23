@@ -9,19 +9,32 @@ window.JaPronMini = (() => {
       .replaceAll('"', "&quot;");
   }
 
-  function highSpan(text, withDownstep) {
+  function highSpan(content, withDownstep) {
     const downstep = withDownstep ? '<span class="pitch-down" aria-hidden="true"></span>' : "";
-    return `<span class="pitch-high">${escapeHtml(text)}${downstep}</span>`;
+    return `<span class="pitch-high">${content}${downstep}</span>`;
   }
 
-  function renderAccent(moras, accent) {
-    const highStart = accent === 1 ? 0 : 1;
-    const highEndExclusive = accent === 0 ? moras.length : accent;
-    const before = moras.slice(0, highStart).join("");
-    const high = moras.slice(highStart, highEndExclusive).join("");
-    const after = moras.slice(highEndExclusive).join("");
-    const hasDownstep = accent > 0 && high.length > 0;
-    return escapeHtml(before) + (high ? highSpan(high, hasDownstep) : "") + escapeHtml(after);
+  function renderMora(mora, index, circledIndices) {
+    const content = escapeHtml(mora);
+    return circledIndices.has(index) ? `<span class="kana-circle">${content}</span>` : content;
+  }
+
+  function renderMoras(moras, start, end, circledIndices) {
+    return moras.slice(start, end).map((mora, offset) => {
+      return renderMora(mora, start + offset, circledIndices);
+    }).join("");
+  }
+
+  function renderAccent(moras, accent, circled = []) {
+    const circledIndices = new Set(circled);
+    const resolvedAccent = accent < 0 ? moras.length + accent + 1 : accent;
+    const highStart = resolvedAccent === 1 ? 0 : 1;
+    const highEndExclusive = resolvedAccent === 0 ? moras.length : resolvedAccent;
+    const before = renderMoras(moras, 0, highStart, circledIndices);
+    const high = renderMoras(moras, highStart, highEndExclusive, circledIndices);
+    const after = renderMoras(moras, highEndExclusive, moras.length, circledIndices);
+    const hasDownstep = resolvedAccent > 0 && high.length > 0;
+    return before + (high ? highSpan(high, hasDownstep) : "") + after;
   }
 
   function renderParts(parts) {
@@ -29,7 +42,7 @@ window.JaPronMini = (() => {
       if (part.separator) {
         return `<span class="separator">${escapeHtml(part.separator)}</span>`;
       }
-      return renderAccent(part.moras, part.accent);
+      return renderAccent(part.moras, part.accent, part.circled);
     }).join("");
   }
 
@@ -154,10 +167,16 @@ window.JaPitchTables = (() => {
     if (!notesElement) return;
 
     // Note text may contain trusted HTML, such as rendered pitch accents or line breaks.
-    notesElement.innerHTML = notes.map(note => `<li>
-      <span class="note-label" lang="ja">${JaPronMini.escapeHtml(note.target)}</span>
-      <span class="note-text" lang="ja">${note.text}</span>
-    </li>`).join("");
+    notesElement.innerHTML = notes.map(note => {
+      const translation = note.translation
+        ? `<span class="note-translation" lang="en">${JaPronMini.escapeHtml(note.translation)}</span>`
+        : "";
+      return `<li>
+        <span class="note-label" lang="ja">${JaPronMini.escapeHtml(note.target)}</span>
+        <span class="note-text" lang="ja">${note.text}</span>
+        ${translation}
+      </li>`;
+    }).join("");
   }
 
   function renderSectionColumnAccentTable(options) {
